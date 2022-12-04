@@ -4,12 +4,12 @@ use std::collections::HashMap;
 
 fn part_one(input: Option<String>) -> Result<String, String>{
     let plain_input: String;
-    let mut result: Result<String, String> = Err("Some Error".to_string());
+    let result: Result<String, String>;
 
     match input {
         Some(i) => plain_input = i,
         None => {
-            result = Err("No input given".to_string());
+            // result = Err("No input given".to_string());
             plain_input = "".to_string();
         },
     }
@@ -40,7 +40,7 @@ fn part_one(input: Option<String>) -> Result<String, String>{
     return result;
 }
 
-fn part_two(input: Option<String>) -> Result<String, String>{
+fn part_two(_input: Option<String>) -> Result<String, String>{
     return Err("Not implemented yet".to_string());
 }
 
