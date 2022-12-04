@@ -40,8 +40,45 @@ fn part_one(input: Option<String>) -> Result<String, String>{
     return result;
 }
 
-fn part_two(_input: Option<String>) -> Result<String, String>{
-    return Err("Not implemented yet".to_string());
+fn part_two(input: Option<String>) -> Result<String, String>{
+    let plain_input: String;
+    let result: Result<String, String>;
+
+    match input {
+        Some(i) => plain_input = i,
+        None => {
+            // result = Err("No input given".to_string());
+            plain_input = "".to_string();
+        },
+    }
+
+    let split = plain_input.split("\n");
+    let mut elfs: HashMap<u32, u32> = HashMap::new();
+
+    let mut current_elf: u32 = 1;
+    for s in split {
+        if s == "" {
+            current_elf+=1;
+        } else {
+            let additional_value: u32 = s.parse().unwrap();
+
+            elfs.entry(current_elf)
+                .and_modify(|value| *value += additional_value)
+                .or_insert(additional_value);
+        }
+    }
+    let mut elfs_vec: Vec<(&u32, &u32)> = elfs.iter().collect();
+    elfs_vec.sort_by(|a, b| a.1.cmp(&b.1));
+
+    let best_three = elfs_vec.iter().rev().take(3);
+    let mut sum: u32 = 0;
+    for elem in best_three {
+        sum += elem.1;
+    }
+
+    result = Ok(sum.to_string());
+
+    return result;
 }
 
 pub fn day_one(input: Challenge) -> DayResult{
