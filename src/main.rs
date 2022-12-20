@@ -34,11 +34,6 @@ fn main() {
         Ok(i) => println!("Result of part two: {}", i),
         Err(i) => println!("{}", i),
     }
-    // println!("{result}")
-
-
-
-    // let result: DayResult = run_day(input);
 }
 
 
