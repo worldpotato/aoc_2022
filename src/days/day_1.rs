@@ -106,4 +106,14 @@ mod test_day_one {
         let day_one: Result<String, String> = super::part_one(input.one);
         assert_eq!(day_one.unwrap(), String::from("24000"));
     }
+
+    #[test]
+    fn part_two() {
+        let complete_input = parse_input(1);
+
+        let input = complete_input.test;
+        let day_one: Result<String, String> = super::part_two(input.one);
+        assert_eq!(day_one.unwrap(), String::from("45000"));
+    }
 }
+
