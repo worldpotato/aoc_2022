@@ -1,4 +1,5 @@
 use serde::Deserialize;
+use crate::Modes;
 
 // use std::collections::HashMap;
 use std::fs;
@@ -20,6 +21,15 @@ pub struct SingleDay {
     pub day: u32,
     pub test: Challenge,
     pub challenge: Challenge,
+}
+
+impl SingleDay {
+    pub fn get_input(self, mode: Modes) -> Challenge {
+        match mode {
+            Modes::Test => self.test,
+            Modes::Challenge => self.challenge,
+        }
+    }
 }
 
 pub fn parse_input(day: u8) -> SingleDay {

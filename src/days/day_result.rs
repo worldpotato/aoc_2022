@@ -1,5 +1,4 @@
-
 pub struct DayResult {
-    pub one: Result<String, String>,
-    pub two: Result<String, String>,
+    pub part_one: Result<String, String>,
+    pub part_two: Result<String, String>,
 }

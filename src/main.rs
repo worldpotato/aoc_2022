@@ -1,4 +1,3 @@
-
 pub mod days;
 pub mod parameters;
 pub mod input;
@@ -12,28 +11,24 @@ pub enum Modes {
 }
 
 fn main() {
-    let day = 1;
+
+    let day: u8 = 2;
     let mode = Modes::Challenge;
     // let args: Vec<String> = env::args().collect();
     // let (day, mode) = parse_parameters(&args);
     let complete_input = parse_input(day);
-    let input;
-    match mode {
-        Modes::Test => input = complete_input.test,
-        Modes::Challenge => input = complete_input.challenge,
-    }
-    let day_result = run_day(day, input);
-    let day_one_result = day_result.one;
-    let day_two_result = day_result.two;
+    let input_value = complete_input.get_input(mode);
+    // mode.map(|n| n.
+    let day_result = run_day(day, input_value);
 
-    match day_one_result {
+    match day_result.part_one {
         Ok(i) => println!("Result of part one: {}", i),
         Err(i) => println!("{}", i),
     }
-    match day_two_result {
+
+    match day_result.part_two {
         Ok(i) => println!("Result of part two: {}", i),
         Err(i) => println!("{}", i),
     }
 }
-
 
