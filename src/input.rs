@@ -4,10 +4,6 @@ use crate::Modes;
 // use std::collections::HashMap;
 use std::fs;
 
-// #[derive(Deserialize, Debug)]
-// pub struct SingleInput {
-//     input: String,
-// }
 
 #[derive(Clone, Deserialize, Debug)]
 pub struct Challenge {
@@ -34,6 +30,7 @@ impl SingleDay {
 
 pub fn parse_input(day: u8) -> SingleDay {
     // let file_path: String = String::from("./inputs/day1.toml");
+    debug!("Parsing config for day {}", day);
     let file_path: String = format!("./inputs/day{}.toml", day);
 
     let content = fs::read_to_string(file_path).expect("Should have been able to read the file");
