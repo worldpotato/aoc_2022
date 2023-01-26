@@ -6,7 +6,7 @@ pub mod modes;
 #[macro_use]
 extern crate log;
 
-use log::{debug, error, log_enabled, info, Level};
+use log::{debug, error, info};
 
 use crate::days::*;
 use crate::input::*;
@@ -21,8 +21,11 @@ fn main() {
     let mode = Modes::Challenge;
     // let args: Vec<String> = env::args().collect();
     // let (day, mode) = parse_parameters(&args);
+    debug!("Parse Input");
     let complete_input = parse_input(day);
+    debug!("Get input");
     let input_value = complete_input.get_input(mode);
+    debug!("Execute day");
     let day_result = run_day(day, input_value);
 
     match day_result.part_one {
